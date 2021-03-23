@@ -11,7 +11,7 @@ class MainScreen(GridLayout):
 		self.cols = 2
 		self.add_widget(Label(text='Play Audio'))
 		self.playBtn = Button(text="Play")
-		self.playBtn.bind(on_press=audio_manager.play_source_audio)
+		self.playBtn.bind(on_release=audio_manager.play_source_audio)
 		self.add_widget(self.playBtn)
 		self.add_widget(Label(text='Convert Audio'))
 		self.convertBtn = Button(text="Convert")
