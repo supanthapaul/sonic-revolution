@@ -22,7 +22,7 @@ class SecondWindow(Screen):
 class WindowManager(ScreenManager):
     pass
 
-kv = Builder.load_file('layouts/layout.kv')
+kv = Builder.load_file('layouts/main_screen.kv')
 
 class SonicRevolution(App):
     def build(self):
