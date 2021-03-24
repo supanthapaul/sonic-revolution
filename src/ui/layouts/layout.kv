@@ -1,0 +1,116 @@
+#: import Factory kivy.factory.Factory
+
+WindowManager:
+    FirstWindow:
+    SecondWindow:
+
+
+
+<FirstWindow>:
+    name: "FirstWindow"
+
+    canvas.before:
+        Color:
+            rgba: (1,1,1,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.width, root.height
+        padding: 100
+        spacing: 20
+
+        #Image:
+            #source: 'layouts/A.png'
+            #allow_stretch: True
+            #keep_ratio: True
+
+        Button:
+            text: "Create new Mixer"
+            font_size: 32
+            pos_hint: {'center_x': 0.5 , 'center_y': 0.5}
+            size_hint: (0.7,None)
+            height: 70
+            on_release: Factory.MixerPopup().open()
+
+<MixerPopup>
+    auto_dismiss: False
+    size_hint: 0.8,0.8
+    pos_hint: {'center_x':0.5 , 'center_y':0.5 }
+    title: "Mixer properties"
+
+    GridLayout:
+        cols:1
+        size: root.width , root.height
+        padding: 20
+        spacing: 20
+
+        Label:
+            text:"Input the fields"
+            font_size: 24
+        
+        GridLayout:
+            cols:2
+
+            Label:
+                text: "Sample Rate:"
+                font_size: 24
+
+            TextInput:
+                id: sampleRate
+                multiline : False
+                font_size: 24
+
+            Label:
+                text: "Amplitude:"
+                font_size: 24
+
+            TextInput:
+                id: amplitude
+                multiline : False
+                font_size: 24
+        
+        Button:
+            text:"Next"
+            font_size: 24
+            on_release: 
+                app.root.current = "SecondWindow"
+                root.dismiss()
+                #root.WindowManager.transition.direction = "left" #up
+
+
+<SecondWindow>:
+    name: "SecondWindow"
+
+    canvas.before:
+        Color:
+            rgba: (1,1,1,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.width, root.height
+        padding: 50
+
+        Label:
+            text: "Tracks and Tones"
+            pos_hint:{'x': 0 , 'y': 0}
+            font_size: 45
+            color: (1,1,1,1)
+            outline_color:(0,0,1,1)
+            outline_width: 3
+        
+        Button:
+            text: "Add new Tracks"
+            font_size: 32
+            pos_hint: {'center_x': 0.5 , 'center_y': 0.5}
+            size_hint: (0.7,None)
+            height: 70
+            on_release: Factory.MixerPopup().open()
+            
+
