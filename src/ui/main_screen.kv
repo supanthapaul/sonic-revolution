@@ -1,40 +1,36 @@
 #: import Factory kivy.factory.Factory
+##:include secondwindow.kv
+<main_screen>:
+    orientation: 'vertical'
+    Label:
+        text: 'this on top'
+    Label:
+        text: 'this right aligned'
+        size_hint_x: None
+        size: self.texture_size
+        pos_hint: {'right': 1}
+    Label:
+        text: 'this on bottom'
+
 
 WindowManager:
     FirstWindow:
     SecondWindow:
 
-
-
 <FirstWindow>:
     name: "FirstWindow"
 
-    canvas.before:
+    canvas:
         Color:
             rgba: (1,1,1,1)
         Rectangle:
             pos: self.pos
             size: self.size
 
-
-    BoxLayout:
-        orientation: 'vertical'
-        size: root.width, root.height
-        padding: 100
-        spacing: 20
-
-        #Image:
-            #source: 'layouts/A.png'
-            #allow_stretch: True
-            #keep_ratio: True
-
-        Button:
-            text: "Create new Mixer"
-            font_size: 32
-            pos_hint: {'center_x': 0.5 , 'center_y': 0.5}
-            size_hint: (0.7,None)
-            height: 70
-            on_release: Factory.MixerPopup().open()
+    first_window_layout:
+        size_hint:[None, None]
+        size:[app.x, app.y]
+    
 
 <MixerPopup>
     auto_dismiss: False
@@ -81,7 +77,7 @@ WindowManager:
                 root.dismiss()
                 #root.WindowManager.transition.direction = "left" #up
 
-
+#SecondWindow:
 <SecondWindow>:
     name: "SecondWindow"
 
@@ -92,14 +88,13 @@ WindowManager:
             pos: self.pos
             size: self.size
 
-    BoxLayout:
-        orientation: 'vertical'
+    FloatLayout:
         size: root.width, root.height
         padding: 50
 
         Label:
             text: "Tracks and Tones"
-            pos_hint:{'x': 0 , 'y': 0}
+            pos_hint:{'center_x': 1 , 'center_y': 1}
             font_size: 45
             color: (1,1,1,1)
             outline_color:(0,0,1,1)

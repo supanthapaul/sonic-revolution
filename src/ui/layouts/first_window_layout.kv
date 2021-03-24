@@ -1,0 +1,18 @@
+<first_window_layout@BoxLayout>:
+        orientation: 'vertical'
+        size: root.width, root.height
+        padding: 100
+        spacing: 20
+
+        #Image:
+            #source: 'layouts/A.png'
+            #allow_stretch: True
+            #keep_ratio: True
+
+        Button:
+                text: "Create new Mixer"
+                font_size: 32
+                pos_hint: {'center_x': 0.5 , 'center_y': 0.5}
+                size_hint: (0.7,None)
+                height: 70
+                on_release: Factory.MixerPopup().open()
