@@ -3,7 +3,9 @@ from kivy.uix.gridlayout import GridLayout
 from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
 from kivy.uix.button import Button
+from kivy.uix.widget import Widget
 from src import audio_manager
+from kivy.lang import Builder
 
 class MainScreen(GridLayout):
 	def __init__(self, **kwargs):
@@ -18,9 +20,16 @@ class MainScreen(GridLayout):
 		self.convertBtn.bind(on_press=audio_manager.convert_and_play)
 		self.add_widget(self.convertBtn)
 
+Builder.load_file('src/testone.kv')
+
+class Hello(Widget):
+	pass
+class Hey(Widget):
+	pass
+
 class TestApp(App):
 	def build(self):
-		return MainScreen()
+		return Hello()
 
 
 TestApp().run()
