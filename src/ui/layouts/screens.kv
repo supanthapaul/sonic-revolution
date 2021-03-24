@@ -1,0 +1,37 @@
+#: import Factory kivy.factory.Factory
+#: include src/ui/layouts/home_screen.kv
+#: include src/ui/layouts/mixer_screen.kv
+#: include src/ui/layouts/mixer_popup.kv
+
+WindowManager:
+    FirstWindow:
+    SecondWindow:
+
+<FirstWindow>:
+    name: "FirstWindow"
+
+    canvas:
+        Color:
+            rgba: (1,1,1,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    
+    FirstWindowLayout:
+    
+<MixerPopup>:
+    
+<SecondWindow>:
+    name: "SecondWindow"
+
+    canvas.before:
+        Color:
+            rgba: (1,1,1,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    
+    SecondWindowLayout:
+    
+            
+

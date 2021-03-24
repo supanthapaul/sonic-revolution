@@ -1,0 +1,43 @@
+<MixerPopup>
+    auto_dismiss: False
+    size_hint: 0.8,0.8
+    pos_hint: {'center_x':0.5 , 'center_y':0.5 }
+    title: "Mixer properties"
+    
+    GridLayout:
+        cols:1
+        size: root.width , root.height
+        padding: 20
+        spacing: 20
+
+        Label:
+            text:"Input the fields"
+            font_size: 24
+        
+        GridLayout:
+            cols:2
+
+            Label:
+                text: "Sample Rate:"
+                font_size: 24
+
+            TextInput:
+                id: sampleRate
+                multiline : False
+                font_size: 24
+
+            Label:
+                text: "Amplitude:"
+                font_size: 24
+
+            TextInput:
+                id: amplitude
+                multiline : False
+                font_size: 24
+        
+        Button:
+            text:"Next"
+            font_size: 24
+            on_release: 
+                app.root.current = "SecondWindow"
+                root.dismiss()

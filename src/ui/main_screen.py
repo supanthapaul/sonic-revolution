@@ -26,13 +26,20 @@ class SecondWindow(Screen):
 class WindowManager(ScreenManager):
     pass
 
-class MainScreen(Widget):
+class FirstWindowLayout(Widget):
 	pass
 
-class SecondScreen(Widget):
+class SecondWindowLayout(Widget):
 	pass
 
-kv = Builder.load_file('main_screen.kv')
+#class MixerPopupLayout(Widget):
+	#pass
+
+
+#class SecondScreen(Widget):
+	#pass
+
+kv = Builder.load_file('layouts/screens.kv')
 
 class SonicRevolution(App):
     def build(self):

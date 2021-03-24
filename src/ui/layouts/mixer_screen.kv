@@ -1,0 +1,20 @@
+<SecondWindowLayout>
+    FloatLayout:
+        size: root.width, root.height
+        padding: 50
+
+        Label:
+            text: "Tracks and Tones"
+            pos_hint:{'center_x': 1 , 'center_y': 1}
+            font_size: 45
+            color: (1,1,1,1)
+            outline_color:(0,0,1,1)
+            outline_width: 3
+        
+        Button:
+            text: "Add new Tracks"
+            font_size: 32
+            pos_hint: {'center_x': 0.5 , 'center_y': 0.5}
+            size_hint: (0.7,None)
+            height: 70
+            on_release: Factory.MixerPopup().open()
