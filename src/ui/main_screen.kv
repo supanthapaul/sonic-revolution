@@ -1,111 +1,88 @@
 #: import Factory kivy.factory.Factory
-##:include secondwindow.kv
-<main_screen>:
-    orientation: 'vertical'
-    Label:
-        text: 'this on top'
-    Label:
-        text: 'this right aligned'
-        size_hint_x: None
-        size: self.texture_size
-        pos_hint: {'right': 1}
-    Label:
-        text: 'this on bottom'
+#: include src/ui/layouts/secondwindow.kv
 
+<MainScreen>
+    WindowManager:
+        FirstWindow:
+        SecondWindow:
 
-WindowManager:
-    FirstWindow:
-    SecondWindow:
+    Screen:
+        name: "FirstWindow"
 
-<FirstWindow>:
-    name: "FirstWindow"
+        canvas:
+            Color:
+                rgba: (1,1,1,1)
+            Rectangle:
+                pos: self.pos
+                size: self.size
+    
+        BoxLayout:
+            orientation: 'vertical'
+            size: root.width, root.height
+            padding: 100
+            spacing: 20
 
-    canvas:
-        Color:
-            rgba: (1,1,1,1)
-        Rectangle:
-            pos: self.pos
-            size: self.size
+            #Image:
+                #source: 'layouts/A.png'
+                #allow_stretch: True
+                #keep_ratio: True
 
-    first_window_layout:
-        size_hint:[None, None]
-        size:[app.x, app.y]
+            Button:
+                text: "Create new Mixer"
+                font_size: 32
+                pos_hint: {'center_x': 0.5 , 'center_y': 0.5}
+                size_hint: (0.7,None)
+                height: 70
+                on_release: Factory.MixerPopup().open()
     
 
-<MixerPopup>
-    auto_dismiss: False
-    size_hint: 0.8,0.8
-    pos_hint: {'center_x':0.5 , 'center_y':0.5 }
-    title: "Mixer properties"
+    Popup:
+        auto_dismiss: False
+        size_hint: 0.8,0.8
+        pos_hint: {'center_x':0.5 , 'center_y':0.5 }
+        title: "Mixer properties"
 
-    GridLayout:
-        cols:1
-        size: root.width , root.height
-        padding: 20
-        spacing: 20
-
-        Label:
-            text:"Input the fields"
-            font_size: 24
-        
         GridLayout:
-            cols:2
+            cols:1
+            size: root.width , root.height
+            padding: 20
+            spacing: 20
 
             Label:
-                text: "Sample Rate:"
-                font_size: 24
-
-            TextInput:
-                id: sampleRate
-                multiline : False
-                font_size: 24
-
-            Label:
-                text: "Amplitude:"
-                font_size: 24
-
-            TextInput:
-                id: amplitude
-                multiline : False
+                text:"Input the fields"
                 font_size: 24
         
-        Button:
-            text:"Next"
-            font_size: 24
-            on_release: 
-                app.root.current = "SecondWindow"
-                root.dismiss()
-                #root.WindowManager.transition.direction = "left" #up
+            GridLayout:
+                cols:2
 
-#SecondWindow:
-<SecondWindow>:
-    name: "SecondWindow"
+                Label:
+                    text: "Sample Rate:"
+                    font_size: 24
 
-    canvas.before:
-        Color:
-            rgba: (1,1,1,1)
-        Rectangle:
-            pos: self.pos
-            size: self.size
+                TextInput:
+                    id: sampleRate
+                    multiline : False
+                    font_size: 24
 
-    FloatLayout:
-        size: root.width, root.height
-        padding: 50
+                Label:
+                    text: "Amplitude:"
+                    font_size: 24
 
-        Label:
-            text: "Tracks and Tones"
-            pos_hint:{'center_x': 1 , 'center_y': 1}
-            font_size: 45
-            color: (1,1,1,1)
-            outline_color:(0,0,1,1)
-            outline_width: 3
+                TextInput:
+                    id: amplitude
+                    multiline : False
+                    font_size: 24
         
-        Button:
-            text: "Add new Tracks"
-            font_size: 32
-            pos_hint: {'center_x': 0.5 , 'center_y': 0.5}
-            size_hint: (0.7,None)
-            height: 70
-            on_release: Factory.MixerPopup().open()
+            Button:
+                text:"Next"
+                font_size: 24
+                on_release: 
+                    app.root.current = "SecondWindow"
+                    root.dismiss()
+                    #root.WindowManager.transition.direction = "left" #up
+
+
+    SecondScreen:
+    
             
 

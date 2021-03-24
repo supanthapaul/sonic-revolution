@@ -7,7 +7,7 @@ from kivy.uix.popup import Popup
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.widget import Widget
 
-Builder.load_file('layouts/first_window_layout.kv')
+#Builder.load_file('layouts/first_window_layout.kv')
 
 class MixerPopup(Popup):
     pass
@@ -26,12 +26,16 @@ class SecondWindow(Screen):
 class WindowManager(ScreenManager):
     pass
 
-#kv = Builder.load_file('layouts/main_screen.kv')
-class main_screen(Widget):
-		pass
+class MainScreen(Widget):
+	pass
+
+class SecondScreen(Widget):
+	pass
+
+kv = Builder.load_file('main_screen.kv')
 
 class SonicRevolution(App):
     def build(self):
-        return main_screen()
+        return kv
 
 SonicRevolution().run()
