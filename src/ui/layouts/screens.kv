@@ -4,11 +4,11 @@
 #: include src/ui/layouts/mixer_popup.kv
 
 WindowManager:
-    FirstWindow:
-    SecondWindow:
+    HomeScreen:
+    MixerScreen:
 
-<FirstWindow>:
-    name: "FirstWindow"
+<HomeScreen>:
+    name: "HomeScreen"
 
     canvas:
         Color:
@@ -17,12 +17,12 @@ WindowManager:
             pos: self.pos
             size: self.size
     
-    FirstWindowLayout:
+    HomeScreenLayout:
     
 <MixerPopup>:
     
-<SecondWindow>:
-    name: "SecondWindow"
+<MixerScreen>:
+    name: "MixerScreen"
 
     canvas.before:
         Color:
@@ -31,7 +31,7 @@ WindowManager:
             pos: self.pos
             size: self.size
     
-    SecondWindowLayout:
+    MixerScreenLayout:
     
             
 

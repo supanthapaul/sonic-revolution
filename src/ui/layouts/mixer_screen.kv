@@ -1,4 +1,4 @@
-<SecondWindowLayout>
+<MixerScreenLayout>
     FloatLayout:
         size: root.width, root.height
         padding: 50
@@ -17,4 +17,5 @@
             pos_hint: {'center_x': 0.5 , 'center_y': 0.5}
             size_hint: (0.7,None)
             height: 70
-            on_release: Factory.MixerPopup().open()
+            on_release: 
+                root.buttonPress()
