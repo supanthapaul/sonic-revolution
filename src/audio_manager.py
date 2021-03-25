@@ -1,8 +1,7 @@
 import librosa
 from tones.mixer import Mixer
-from tones import SINE_WAVE, SAWTOOTH_WAVE, SQUARE_WAVE, TRIANGLE_WAVE
 from kivy.core.audio import SoundLoader
-import enum
+from src.track_type import TrackType
 
 class AudioManager:
 	__instance__ = None
@@ -36,12 +35,6 @@ class AudioManager:
 		# increment current track id
 		self.curr_track_id += 1
 
-
-class TrackType(enum.Enum):
-	SineWave = SINE_WAVE
-	SawtoothWave = SAWTOOTH_WAVE
-	SquareWave = SQUARE_WAVE
-	TriangleWave = TRIANGLE_WAVE
 
 file_root = 'assets/sounds/'
 def play_source_audio(instance):

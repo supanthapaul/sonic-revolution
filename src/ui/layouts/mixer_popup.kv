@@ -3,7 +3,7 @@
     size_hint: 0.8,0.8
     pos_hint: {'center_x':0.5 , 'center_y':0.5 }
     title: "Mixer properties"
-    
+
     GridLayout:
         cols:1
         size: root.width , root.height
@@ -13,7 +13,7 @@
         Label:
             text:"Input the fields"
             font_size: 24
-        
+
         GridLayout:
             cols:2
 
@@ -25,6 +25,7 @@
                 id: sampleRate
                 multiline : False
                 font_size: 24
+                text: '44100'
 
             Label:
                 text: "Amplitude:"
@@ -34,10 +35,11 @@
                 id: amplitude
                 multiline : False
                 font_size: 24
-        
+                text: '0.5'
+
         Button:
             text:"Next"
             font_size: 24
-            on_release: 
+            on_release:
                 app.root.current = "SecondWindow"
                 root.dismiss()
