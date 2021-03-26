@@ -34,6 +34,12 @@ class AudioManager:
 		self.mixer.create_track(self.curr_track_id, track_type, vibrato_frequency=vibrato_freq, vibrato_variance=vibrato_variance, attack=attack, decay=decay)
 		# increment current track id
 		self.curr_track_id += 1
+		# return id of this track
+		return self.curr_track_id - 1
+	def create_tone(self, track_id, startNote, octave, duration, endNote):
+
+		return
+
 
 
 file_root = 'assets/sounds/'

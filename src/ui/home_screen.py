@@ -1,13 +1,19 @@
+from kivy.app import App
 from kivy.uix.screenmanager import ScreenManager,Screen
 from kivy.uix.popup import Popup
-
-class MixerPopup(Popup):
-    pass
+from kivy.uix.widget import Widget
 
 class HomeScreen(Screen):
+	pass
 
-    #def mixerPopup(self):
-    #    the_popup = MixerPopup()
-    #    the_popup.open()
-    #    print("MIXER popup")
-    pass
+class MixerPopup(Popup):
+	def confirm(self, instance):
+		# TODO : Fucking create an actual Mixer
+		self.dismiss()
+		app = App.get_running_app()
+		app.root.current = "MixerScreen"
+
+
+
+class HomeScreenLayout(Widget):
+	pass
