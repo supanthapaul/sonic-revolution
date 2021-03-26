@@ -7,26 +7,13 @@ from kivy.uix.popup import Popup
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.widget import Widget
 from kivy.uix.button import Button
-
-
-class MixerPopup(Popup):
-    pass
+from src.ui.home_screen import HomeScreen,MixerPopup
 
 #define screens
-class HomeScreen(Screen):
-
-    def mixerPopup(self):
-        the_popup = MixerPopup()
-        the_popup.open()
     #pass
 
-class MixerScreen(Screen):
-    
-    def buttonPress(self):
-        self.add_widget(
-            Button(text='Add tones')
-        )
-    #pass
+class MixerScreen(Screen):  
+    pass
 
 class WindowManager(ScreenManager):
     pass
@@ -34,8 +21,27 @@ class WindowManager(ScreenManager):
 class HomeScreenLayout(Widget):
 	pass
 
-class MixerScreenLayout(Widget):
+class TracksList(Widget):
 	pass
+
+#class TrackButton(Button):
+    #pass
+
+class TracksGrid(Widget):
+    pass 
+
+class GetTrackButton(Button):
+    track_number = 1
+    def get_tracks(self):
+       self.track_number += 1
+       self.ids.tracks_grid.add_widget(Button(text='Track' + str(track_number)))
+       #track_button = Button(text='Track ' + str(self.track_number)
+    #pass
+
+class MixerScreenLayout(Widget):
+    def buttonPress(self):
+        GetTrackButton.get_tracks(self)
+	#pass
 
 kv = Builder.load_file('src/ui/layouts/screens.kv')
 

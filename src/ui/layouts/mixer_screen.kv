@@ -1,21 +1,68 @@
+#: include src/ui/layouts/get_track_button.kv
+#: include src/ui/layouts/track_button.kv
+##: include src/ui/layouts/tracks_list.kv
+
 <MixerScreenLayout>
-    FloatLayout:
+    GridLayout:
         size: root.width, root.height
         padding: 50
+        spacing:30
+        cols:1
 
-        Label:
-            text: "Tracks and Tones"
-            pos_hint:{'center_x': 1 , 'center_y': 1}
-            font_size: 45
-            color: (1,1,1,1)
-            outline_color:(0,0,1,1)
-            outline_width: 3
+        #Label:
+        #    text: "Tracks and Tones"
+        #    pos_hint:{'center_x': 0.5 , 'center_y': 0.75}
+        #    font_size: 45
+        #    color: (1,1,1,1)
+        #    outline_color:(0,0,1,1)
+        #    outline_width: 3
         
-        Button:
-            text: "Add new Tracks"
-            font_size: 32
-            pos_hint: {'center_x': 0.5 , 'center_y': 0.5}
-            size_hint: (0.7,None)
-            height: 70
-            on_release: 
-                root.buttonPress()
+        GetTrackButton:
+
+        ScrollView:
+            pos_hint: {'center_x':0.5, 'center_y':0.5}
+            GridLayout:
+                id: tracks_grid
+                cols: 1
+                padding:20
+                spacing: 40
+                size_hint_y: None
+                height: self.minimum_height
+
+                Label:
+                    text: 'Scroll view'
+                    font_size:32
+                    color:(0,0,0,1)
+    
+                Label:
+                    text: 'a'
+                    font_size:32
+                    color:(0,0,0,1)
+                
+                Label:
+                    text: 'a'
+                    font_size:32
+                    color:(0,0,0,1)
+                
+                Label:
+                    text: 'a'
+                    font_size:32
+                    color:(0,0,0,1)
+                
+                Label:
+                    text: 'a'
+                    font_size:32
+                    color:(0,0,0,1)
+                
+                Label:
+                    text: 'a'
+                    font_size:32
+                    color:(0,0,0,1)
+                
+                Label:
+                    text: 'a'
+                    font_size:32
+                    color:(0,0,0,1)
+        
+
+
