@@ -1,8 +1,8 @@
 <TracksPopup>
+    title: "Add Tones"
     auto_dismiss: False
     size_hint: 0.8,0.8
     pos_hint: {'center_x':0.5 , 'center_y':0.5 }
-    title: "Add Tones"
     
     GridLayout:
         cols:1
@@ -12,32 +12,76 @@
 
         Label:
             text:"Input the fields"
+            size_hint: (0.5, 0.1)
             font_size: 24
         
         GridLayout:
             cols:2
+            spacing: 20
 
             Label:
-                text: "Sample Rate:"
+                text: "Track Type:"
                 font_size: 24
 
-            TextInput:
-                id: sampleRate
-                multiline : False
+            Spinner:
+                id: trackType
+                text: "Track wave type"
+                values: ["Sine", "Sawtooth", "Square", "Triangle"]
                 font_size: 24
 
             Label:
-                text: "Amplitude:"
+                id: vibratoFrequencySlider
+                text: "Vibrato frequency: "
                 font_size: 24
 
-            TextInput:
-                id: amplitude
-                multiline : False
+            Slider:
+                min: 5
+                max: 8
+                step: 0.1
+                orientation: 'horizontal'
+                on_value: root.vibrato_frequency_slider(*args)
+
+            Label:
+                id: vibratoVarianceSlider
+                text: "Vibrato variance: "
                 font_size: 24
+
+            Slider:
+                min: 15
+                max: 60
+                step: 0.5
+                orientation: 'horizontal'
+                on_value: root.vibrato_variance_slider(*args)
+
+            Label:
+                id: attackSlider
+                text: "Attack: "
+                font_size: 24
+
+            Slider:
+                min: 0.01
+                max: 0.05
+                step: 0.001
+                orientation: 'horizontal'
+                on_value: root.attack_slider(*args)
+            
+            Label:
+                id: decaySlider
+                text: "Decay: "
+                font_size: 24
+
+            Slider:
+                min: 0.01
+                max: 0.5
+                step: 0.01
+                orientation: 'horizontal'
+                on_value: root.decay_slider(*args)
+                
         
         Button:
             text:"Next"
+            size_hint: (0.5, 0.25)
             font_size: 24
             on_release: 
-                app.root.current = "SecondWindow"
+                #app.root.current = "SecondWindow"
                 root.dismiss()

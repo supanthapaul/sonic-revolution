@@ -1,4 +1,3 @@
-#: include src/ui/layouts/get_track_button.kv
 #: include src/ui/layouts/track_button.kv
 ##: include src/ui/layouts/tracks_list.kv
 
@@ -17,7 +16,14 @@
         #    outline_color:(0,0,1,1)
         #    outline_width: 3
         
-        GetTrackButton:
+        Button:
+            text: 'Add Tracks'
+            font_size: 32
+            pos_hint: {'center_x': 0.5 , 'center_y': 0.75}
+            size_hint: (0.7,None)
+            height: 70
+            on_release: 
+                Factory.TracksPopup().open()
 
         ScrollView:
             pos_hint: {'center_x':0.5, 'center_y':0.5}
