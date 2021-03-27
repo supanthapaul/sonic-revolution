@@ -1,3 +1,4 @@
+#: import utils kivy.utils
 #: import Factory kivy.factory.Factory
 #: include src/ui/layouts/home_screen.kv
 #: include src/ui/layouts/mixer_screen.kv
@@ -15,7 +16,7 @@ WindowManager:
 
     canvas:
         Color:
-            rgba: (0,0,0,1)
+            rgba: utils.get_color_from_hex('#222222')
         Rectangle:
             pos: self.pos
             size: self.size
@@ -29,7 +30,7 @@ WindowManager:
 
     canvas.before:
         Color:
-            rgba: (0,0,0,1)
+            rgba: utils.get_color_from_hex('#222222')
         Rectangle:
             pos: self.pos
             size: self.size

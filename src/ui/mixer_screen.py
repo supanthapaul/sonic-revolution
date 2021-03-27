@@ -3,6 +3,7 @@ from kivy.uix.screenmanager import Screen
 from kivy.uix.button import Button
 from kivy.uix.popup import Popup
 from kivy.uix.label import Label
+from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.recycleview import RecycleView
 from src.track_type import get_track_type
 from src.audio_manager import AudioManager
@@ -18,7 +19,7 @@ class TracksList(Widget):
 #class TrackButton(Button):
     #pass
 
-class TracksGrid(Widget):
+class TrackLayout(BoxLayout):
 	pass
 
 class TracksPopup(Popup):
@@ -62,7 +63,6 @@ class GetTrackButton(Button):
 class TracksRecycleView(RecycleView):
 	def __init__(self, **kwargs):
 		super().__init__(**kwargs)
-		print("RECYCLEVIEW INITIALIZED")
 		self.data = []
 		AudioManager.instance().ee.on("add_track", self.on_add_track)
 

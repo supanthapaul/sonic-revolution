@@ -1,4 +1,4 @@
-#: include src/ui/layouts/track_button.kv
+#: include src/ui/layouts/track.kv
 ##: include src/ui/layouts/tracks_list.kv
 
 <MixerScreenLayout>
@@ -27,13 +27,16 @@
 
         TracksRecycleView:
             # pos_hint: {'center_x':0.5, 'center_y':0.5}
-            viewclass: 'Label'
+            viewclass: 'TrackLayout'
             id: scroll
+            size_hint_x: 0.9
             RecycleBoxLayout:
                 id: tracks_grid
                 orientation: 'vertical'
                 # padding:20
                 # spacing: 40
+                default_size_hint: 1, None
+                size_hint_x: 0.9
                 size_hint_y: None
                 height: self.minimum_height
 
