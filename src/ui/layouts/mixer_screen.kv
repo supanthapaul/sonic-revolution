@@ -21,7 +21,7 @@
             font_size: 32
             pos_hint: {'center_x': 0.5 , 'center_y': 0.75}
             size_hint: (0.7,None)
-            height: 70
+            height: 50
             on_release:
                 Factory.TracksPopup().open()
 
@@ -29,16 +29,25 @@
             # pos_hint: {'center_x':0.5, 'center_y':0.5}
             viewclass: 'TrackLayout'
             id: scroll
-            size_hint_x: 0.9
+            size_hint_x: 1
+            do_scroll: (False, True)
+            bar_width: 5
             RecycleBoxLayout:
                 id: tracks_grid
                 orientation: 'vertical'
                 # padding:20
                 # spacing: 40
                 default_size_hint: 1, None
-                size_hint_x: 0.9
+                size_hint_x: 1
                 size_hint_y: None
                 height: self.minimum_height
+        Button:
+            text: 'Preview'
+            font_size: 32
+            pos_hint: {'center_x': 0.5 , 'center_y': 0.75}
+            size_hint: (0.7,None)
+            height: 50
+            on_release: root.preview_audio(self)
 
 
 

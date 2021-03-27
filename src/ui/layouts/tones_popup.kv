@@ -1,4 +1,4 @@
-<TracksPopup>
+<TonesPopup>
     title: "Add Tones"
     auto_dismiss: False
     size_hint: 0.8,0.8
@@ -41,7 +41,7 @@
                 step: 1
                 orientation: 'horizontal'
                 value: 5
-                on_value: root.octave_slider(self)
+                on_value: root.octave_slider(*args)
 
             Label:
                 text: "Duration: "
@@ -51,7 +51,7 @@
                 id: duration
                 multiline : False
                 font_size: 24
-                text: '10'
+                text: '1'
                 on_submit:
 
             Label:

@@ -10,9 +10,9 @@ class TrackType(enum.Enum):
 # takes a track type string and returns TrackType
 def get_track_type(track):
 	switcher = {
-		"Sine": TrackType.SineWave,
-		"Sawtooth": TrackType.SawtoothWave,
-		"Square": TrackType.SquareWave,
-		"Triangle": TrackType.TriangleWave
+		"Sine": SINE_WAVE,
+		"Sawtooth": SAWTOOTH_WAVE,
+		"Square": SQUARE_WAVE,
+		"Triangle": TRIANGLE_WAVE
 	}
 	return switcher.get(track)
