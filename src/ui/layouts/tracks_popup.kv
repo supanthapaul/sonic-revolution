@@ -25,56 +25,64 @@
 
             Spinner:
                 id: trackType
-                text: "Track wave type"
+                text: "Sine"
                 values: ["Sine", "Sawtooth", "Square", "Triangle"]
                 font_size: 24
 
             Label:
-                id: vibratoFrequencySlider
-                text: "Vibrato frequency: "
+                id: vibratoFrequencySliderText
+                text: "Vibrato frequency: 7.0"
                 font_size: 24
 
             Slider:
+                id: vibratoFrequencySlider
                 min: 5
                 max: 8
                 step: 0.1
                 orientation: 'horizontal'
+                value: 7.0
                 on_value: root.vibrato_frequency_slider(*args)
 
             Label:
-                id: vibratoVarianceSlider
-                text: "Vibrato variance: "
+                id: vibratoVarianceSliderText
+                text: "Vibrato variance: 30.0"
                 font_size: 24
 
             Slider:
+                id: vibratoVarianceSlider
                 min: 15
                 max: 60
                 step: 0.5
                 orientation: 'horizontal'
+                value: 30.0
                 on_value: root.vibrato_variance_slider(*args)
 
             Label:
-                id: attackSlider
-                text: "Attack: "
+                id: attackSliderText
+                text: "Attack: 0.01"
                 font_size: 24
 
             Slider:
+                id: attackSlider
                 min: 0.01
                 max: 0.05
                 step: 0.001
                 orientation: 'horizontal'
+                value:0.01
                 on_value: root.attack_slider(*args)
             
             Label:
-                id: decaySlider
-                text: "Decay: "
+                id: decaySliderText
+                text: "Decay: 0.1"
                 font_size: 24
 
             Slider:
+                id: decaySlider
                 min: 0.01
                 max: 0.5
                 step: 0.01
                 orientation: 'horizontal'
+                value: 0.1
                 on_value: root.decay_slider(*args)
                 
         
@@ -83,5 +91,5 @@
             size_hint: (0.5, 0.25)
             font_size: 24
             on_release: 
+                root.confirm_track(self)
                 #app.root.current = "SecondWindow"
-                root.dismiss()
