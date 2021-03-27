@@ -52,6 +52,14 @@ class TracksPopup(Popup):
 		self.dismiss()
     #pass
 
+class TonesPopup(Popup):
+	def octave_slider(self, *args):
+		value = str((float(("{0:.2f}".format(args[1])))))
+		self.ids.octaveSliderText.text = "Octave: " + value
+
+	#def confirm_tone(self, *args):
+		#do shit
+
 class GetTrackButton(Button):
 	#track_number = 1
 	#def get_tracks(self):
