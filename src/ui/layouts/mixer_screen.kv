@@ -15,61 +15,29 @@
         #    color: (1,1,1,1)
         #    outline_color:(0,0,1,1)
         #    outline_width: 3
-        
+
         Button:
             text: 'Add Tracks'
             font_size: 32
             pos_hint: {'center_x': 0.5 , 'center_y': 0.75}
             size_hint: (0.7,None)
             height: 70
-            on_release: 
+            on_release:
                 Factory.TracksPopup().open()
 
-        ScrollView:
-            pos_hint: {'center_x':0.5, 'center_y':0.5}
+        TracksRecycleView:
+            # pos_hint: {'center_x':0.5, 'center_y':0.5}
+            viewclass: 'Label'
             id: scroll
-            GridLayout:
+            RecycleBoxLayout:
                 id: tracks_grid
-                cols: 1
-                padding:20
-                spacing: 40
+                orientation: 'vertical'
+                # padding:20
+                # spacing: 40
                 size_hint_y: None
                 height: self.minimum_height
 
-                Label:
-                    text: 'Scroll view'
-                    font_size:32
-                    color:(0,0,0,1)
-    
-                Label:
-                    text: 'a'
-                    font_size:32
-                    color:(0,0,0,1)
-                
-                Label:
-                    text: 'a'
-                    font_size:32
-                    color:(0,0,0,1)
-                
-                Label:
-                    text: 'a'
-                    font_size:32
-                    color:(0,0,0,1)
-                
-                Label:
-                    text: 'a'
-                    font_size:32
-                    color:(0,0,0,1)
-                
-                Label:
-                    text: 'a'
-                    font_size:32
-                    color:(0,0,0,1)
-                
-                Label:
-                    text: 'a'
-                    font_size:32
-                    color:(0,0,0,1)
-        
+
+
 
 

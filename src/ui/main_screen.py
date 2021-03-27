@@ -3,14 +3,12 @@ from kivy.properties import ObjectProperty
 from kivy.lang import Builder
 from kivy.core.window import Window
 from kivy.uix.screenmanager import Screen, ScreenManager
-from kivy.uix.popup import Popup
-from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.widget import Widget
-from kivy.uix.button import Button
-from src.ui.home_screen import MixerPopup, HomeScreenLayout
+from src.ui.home_screen import *
 from src.ui.mixer_screen import *
 
 class WindowManager(ScreenManager):
+	def change_screen(self, screen_name):
+		self.current = screen_name
 	pass
 
 kv = Builder.load_file('src/ui/layouts/screens.kv')

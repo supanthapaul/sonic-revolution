@@ -1,6 +1,7 @@
 import librosa
 from tones.mixer import Mixer
 from kivy.core.audio import SoundLoader
+from pymitter import EventEmitter
 from src.track_type import TrackType
 
 class AudioManager:
@@ -9,6 +10,8 @@ class AudioManager:
 	def __init__(self):
 		if AudioManager.__instance__ is None:
 			AudioManager.__instance__ = self
+			# create event emitter
+			self.ee = EventEmitter()
 		else:
 			raise Exception("You cannot create another AudioManager class")
 
@@ -22,6 +25,7 @@ class AudioManager:
 	def create_mixer(self, sample_rate, amplitude):
 		self.mixer = Mixer(sample_rate, amplitude)
 		self.curr_track_id = 0
+		return self.mixer
 
 	def create_track(self, track_type, vibrato_freq, vibrato_variance, attack, decay):
 		if not self.mixer:
