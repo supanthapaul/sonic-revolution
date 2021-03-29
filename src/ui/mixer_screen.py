@@ -80,8 +80,9 @@ class TonesRecycleView(RecycleView):
 		self.data = []
 		AudioManager.instance().ee.on("add_tone", self.on_add_tone)
 	def on_add_tone(self, track_id, startNote, octave, duration, endNote):
-		tone = AudioManager.instance().add_tone(track_id, startNote, octave, duration, endNote)
-		self.data.append({'text': startNote + ' - ' + endNote + '\n' + str(duration) + 's'})
+		if int(self.parent.id) == track_id:
+			tone = AudioManager.instance().add_tone(track_id, startNote, octave, duration, endNote)
+			self.data.append({'text': startNote + ' - ' + endNote + '\n' + str(duration) + 's'})
 		pass
 
 class TracksRecycleView(RecycleView):
