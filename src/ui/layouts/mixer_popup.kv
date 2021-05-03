@@ -16,29 +16,38 @@
 
         GridLayout:
             cols:2
+            spacing:10
+            #padding:10
 
             Label:
                 text: "Sample Rate:"
                 font_size: 24
 
-            TextInput:
+            MDTextField:
                 id: sampleRate
                 multiline : False
-                font_size: 24
+                font_size: 22
+                mode: "fill"
+                fill_color: 1,1,1,0.1
                 text: '44100'
 
             Label:
                 text: "Amplitude:"
                 font_size: 24
 
-            TextInput:
+            MDTextField:
                 id: amplitude
                 multiline : False
-                font_size: 24
+                font_size: 22
+                mode: "fill"
+                fill_color: 1,1,1,0.1
                 text: '0.5'
 
-        Button:
+        MDFlatButton:
             text:"Done"
             font_size: 24
+            size_hint: (0.7,None)
+            height: 50
+            md_bg_color: app.theme_cls.primary_color
             on_release:
                 root.confirm(self)

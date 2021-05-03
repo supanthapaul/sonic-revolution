@@ -21,8 +21,9 @@
             size_hint_x: None
             size_hint_y: 1
             width: self.minimum_width
-    Button:
+    MDFlatButton:
         text: 'Add Tone'
         size_hint_x: 0.2
+        md_bg_color: app.theme_cls.primary_color
         on_release: root.open_tone_popup(self)
 

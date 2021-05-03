@@ -16,12 +16,13 @@
         #    outline_color:(0,0,1,1)
         #    outline_width: 3
 
-        Button:
+        MDFlatButton:
             text: 'Add Tracks'
             font_size: 32
             pos_hint: {'center_x': 0.5 , 'center_y': 0.75}
             size_hint: (0.7,None)
             height: 50
+            md_bg_color: app.theme_cls.primary_color
             on_release:
                 Factory.TracksPopup().open()
 
@@ -41,12 +42,13 @@
                 size_hint_x: 1
                 size_hint_y: None
                 height: self.minimum_height
-        Button:
+        MDFlatButton:
             text: 'Preview'
             font_size: 32
             pos_hint: {'center_x': 0.5 , 'center_y': 0.75}
             size_hint: (0.7,None)
             height: 50
+            md_bg_color: app.theme_cls.primary_color
             on_release: root.preview_audio(self)
 
 

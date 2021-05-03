@@ -34,13 +34,15 @@
                 text: "Vibrato frequency: 7.0"
                 font_size: 24
 
-            Slider:
+            MDSlider:
                 id: vibratoFrequencySlider
                 min: 5
                 max: 8
                 step: 0.1
                 orientation: 'horizontal'
                 value: 7.0
+                hint: False
+                humb_color_down: app.theme_cls.primary_color
                 on_value: root.vibrato_frequency_slider(*args)
 
             Label:
@@ -48,13 +50,15 @@
                 text: "Vibrato variance: 30.0"
                 font_size: 24
 
-            Slider:
+            MDSlider:
                 id: vibratoVarianceSlider
                 min: 15
                 max: 60
                 step: 0.5
                 orientation: 'horizontal'
                 value: 30.0
+                hint: False
+                humb_color_down: app.theme_cls.primary_color
                 on_value: root.vibrato_variance_slider(*args)
 
             Label:
@@ -62,13 +66,15 @@
                 text: "Attack: 0.01"
                 font_size: 24
 
-            Slider:
+            MDSlider:
                 id: attackSlider
                 min: 0.01
                 max: 0.05
                 step: 0.001
                 orientation: 'horizontal'
-                value:0.01
+                value:0.011
+                hint: False
+                humb_color_down: app.theme_cls.primary_color
                 on_value: root.attack_slider(*args)
             
             Label:
@@ -76,20 +82,23 @@
                 text: "Decay: 0.1"
                 font_size: 24
 
-            Slider:
+            MDSlider:
                 id: decaySlider
                 min: 0.01
                 max: 0.5
                 step: 0.01
                 orientation: 'horizontal'
                 value: 0.1
+                hint: False
+                humb_color_down: app.theme_cls.primary_color
                 on_value: root.decay_slider(*args)
                 
         
-        Button:
+        MDFlatButton:
             text:"Next"
             size_hint: (0.5, 0.25)
             font_size: 24
+            md_bg_color: app.theme_cls.primary_color
             on_release: 
                 root.confirm_track(self)
                 #app.root.current = "SecondWindow"

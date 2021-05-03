@@ -34,24 +34,28 @@
                 text: "Octave: 5"
                 font_size: 24
 
-            Slider:
+            MDSlider:
                 id: octaveSlider
                 min: 1
                 max: 7
                 step: 1
                 orientation: 'horizontal'
                 value: 5
+                hint: False
+                humb_color_down: app.theme_cls.primary_color
                 on_value: root.octave_slider(*args)
 
             Label:
                 text: "Duration: "
                 font_size: 24
 
-            TextInput:
+            MDTextField:
                 id: duration
                 multiline : False
                 font_size: 24
                 text: '1'
+                mode: "fill"
+                fill_color: 1,1,1,0.1
                 on_submit:
 
             Label:
@@ -64,10 +68,11 @@
                 values: ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"]
                 font_size: 24
 
-        Button:
+        MDFlatButton:
             text:"Next"
             size_hint: (0.5, 0.25)
             font_size: 24
+            md_bg_color: app.theme_cls.primary_color
             on_release:
                 root.confirm_tone(self)
                 #app.root.current = "SecondWindow"
